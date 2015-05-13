@@ -1,0 +1,195 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>D3 Playground</title>
+    <script type="text/javascript" src="../vendor/d3/d3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="../vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+    <script src="../vendor/angular.min.js" /></script>
+    <script src="../vendor/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="../vendor/nvd3/build/nv.d3.min.js"></script>
+    <link rel="stylesheet" href="../vendor/nvd3/build/nv.d3.min.css">
+    <script src="../vendor/prism.js"></script>
+    <link rel="stylesheet" href="../vendor/prism.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2>Table of contents</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Tutorial</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>9 May</p>
+                                </td>
+                                <td>
+                                    <a href="#basicD3">
+                                        <p>Basic D3</p>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>9 May</p>
+                                </td>
+                                <td>
+                                    <a href="#drawingSVG1">
+                                        <p>Drawing SVG 1</p>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>9 May</p>
+                                </td>
+                                <td>
+                                    <a href="#drawingSVG2">
+                                        <p>Drawing SVG 2</p>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>13 May</p>
+                                </td>
+                                <td>
+                                    <a href="#nvd3Demo1">
+                                        <p>NVD3 Demo 1</p>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- content of page -->
+
+
+
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="col-md-12" id="basicD3">
+                                <div class="page-header">
+                                    <h2>Basic D3<small> 9 May 2015</small></h2>
+                                </div>
+
+                                <!-- Basic D3-->
+                                <script type="text/javascript">
+                                    // D3 goes here
+                                    var dataset = []; //Initialize empty array
+                                    for (var i = 0; i < 25; i++) { //Loop 25 times
+                                        var newNumber = Math.round(Math.random() * 30 + 5); //New random number (0-30)
+                                        dataset.push(newNumber); //Add new number to array
+                                    }
+                                    d3.select("#basicD3").selectAll("div").data(dataset).enter().append("div").attr("class", "bar").style("height", function (d) {
+                                        return d * 5 + "px"
+                                    }).style("background-color", function (d) {
+                                        if (d < 10) {
+                                            return "aliceblue"
+                                        } else if (d > 10 && d < 20) {
+                                            return "teal"
+                                        } else {
+                                            return "beige"
+                                        }
+                                    });
+                                </script>
+
+                                <br />
+                                <a href="http://alignedleft.com/tutorials/d3"><span class="label label-default">tutorial</span></a>
+                            </div>
+
+                            <div class="col-md-12" id="drawingSVG1">
+
+                                <div class="page-header">
+                                    <h2>Drawing with SVG 1<small> 9 May 2015</small></h2>
+                                </div>
+                                <!-- Drawing SVG 1 -->
+                                <svg style="width: 500 !important; height:50 !important;">
+                                    <rect x="0" y="0" width="50" height="50" />
+                                    <circle cx="75" cy="25" r="25" stroke="aliceblue" stroke-width="20" />
+                                    <ellipse cx="160" cy="25" rx="60" ry="25" />
+                                    <line x1="220" y1="0" x2="350" y2="50" stroke="black" />
+                                    <text x="350" y="25">Easy-peasy</text>
+                                </svg>
+                                <br />
+                                <p>Importing nvd3 library cause SVG width and height styled into 100%. Therefore, defining width and height in the inline HTML won't affect the size of the SVG.The solution is to add <code>!important</code> mark next to the styling setting. This solution putting the styling into highest priority applies to any styling attribute .</p>
+                                <pre><code class="language-markup line-numbers">
+&lt;!-- In HTML --&gt;    
+&lt;svg style="width: 500 !important; height:50 !important;"&gt; </code>
+
+<code class="language-markup line-numbers">
+&lt;!-- In javascript --&gt;               
+&lt;script type="text/javascript"&gt;
+    td3.select("div").append("svg").attr("style", "width :500 !important; height :50 !important");
+&lt;/script&gt;</code></pre>
+                                <br />
+                                <a href="http://alignedleft.com/tutorials/d3"><span class="label label-default">tutorial</span></a>
+                            </div>
+
+                            <div class="col-md-12" id="drawingSVG2">
+                                <div class="page-header">
+                                    <h2>Drawing with SVG 2<small> 9 May 2015</small></h2>
+                                </div>
+                                <!-- Drawing SVG 2 -->
+                                <script type="text/javascript">
+                                    var w = 500;
+                                    var h = 50;
+                                    var svg = d3.select("#drawingSVG2").append("svg").attr("style", "width :500 !important; height :50 !important");
+                                </script>
+
+
+                                <script type="text/javascript">
+                                    var dataset_2 = [5, 10, 15, 20, 25];
+                                    var circles = svg.selectAll("circle").data(dataset_2).enter().append("circle");
+                                    circles.attr("cx", function (d, i) {
+                                            return (i * 50) + 25;
+                                        }).attr("cy", h / 2).attr("r", function (d) {
+                                            return d;
+                                        }).attr("fill", "yellow")
+                                        .attr("stroke", "orange")
+                                        .attr("stroke-width", function (d) {
+                                            return d / 2;
+                                        });
+                                </script>
+                                <br />
+
+                                <a href="http://alignedleft.com/tutorials/d3"><span class="label label-default">tutorial</span></a>
+                            </div>
+                            <div class="col-md-12" id="nvd3Demo1">
+                                <div class="page-header">
+                                    <h2>NVD3 Demo 1<small> 13 May 2015</small></h2>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

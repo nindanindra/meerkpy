@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="ppiiApp" lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+
+    <script src="../vendor/angular.min.js"></script>
+    <script src="../vendor/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="../vendor/angular-autoFields-bootstrap-master/autofields.min.js"></script>
+    <script src="../vendor/angular-autoFields-bootstrap-master/autofields-bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <!-- Paper form -->
+    <div class="container" ng-controller="paper">
+        <div class="col-md-12">
+            <form name="PaperDetail" ng-submit="join()">
+                <h1>Paper</h1>
+                <h2>Paper Detail</h2>
+                <auto:fields fields="skemaCreatePaper" data="modelPaper" options="optionsPaper"></auto:fields>
+            </form>
+        </div>
+    </div>
+
+    <!-- Competition form -->
+    <div class="container" ng-controller="competition">
+        <div class="col-md-12">
+            <form name="CompetitionForm" ng-submit="join()">
+                <h1>Competition</h1>
+                <h2>Create Competition</h2>
+                <auto:fields fields="skemaCreateCompetition" data="modelCompetition" options="optionsCompetition"></auto:fields>
+                <h2>Contact Person</h2>
+                <auto:fields fields="skemaContactPersonCompetition" data="modelCompetition" options="optionsCompetition"></auto:fields>
+            </form>
+        </div>
+    </div>
+
+    <!-- User form -->
+    <div class="container" ng-controller="user">
+        <div class="col-md-12">
+            <form name="UserForm" ng-submit="join()">
+                <h1>User</h1>
+                <h2>Create User</h2>
+                <auto:fields fields="skemaCreateUser" data="modelUser" options="optionsUser"></auto:fields>
+                <h2>Define User</h2>
+                <auto:fields fields="skemaDefineUser" data="modelUser" options="optionsUser"></auto:fields>
+                <h2>Edit User</h2>
+                <auto:fields fields="skemaEditUser" data="modelUser" options="optionsUser"></auto:fields>
+            </form>
+        </div>
+    </div>
+
+    <!-- Password form : forgot, change, & create new -->
+    <div class="container" ng-controller="password">
+        <div class="col-md-12">
+            <form name="PasswordForm" ng-submit="join()">
+                <h1>Password</h1>
+                <h2>Forgot Password</h2>
+                <auto:fields fields="skemaForgotPassword" data="modelPassword" options="optionsPassword"></auto:fields>
+                <h2>Change Password</h2>
+                <auto:fields fields="skemaChangePassword" data="modelPassword" options="optionsPassword"></auto:fields>
+                <h2>Create New Password</h2>
+                <auto:fields fields="skemaCreateNewPassword" data="modelPassword" options="optionsPassword"></auto:fields>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
